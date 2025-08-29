@@ -1,0 +1,16 @@
+{
+  "name": "bn-bd-neural-tts",
+  "version": "1.0.0",
+  "description": "Bengali (Bangladesh) female neural TTS with download (Azure relay) + browser fallback",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "NODE_ENV=production node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "node-fetch": "^3.3.2"
+  }
+}

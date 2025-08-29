@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>বাংলা টেক্সট টু স্পিচ — Pro (bn-BD Female)</title>
+  <style>
+    :root {
+      --bg: #0b0f1a;
+      --panel: #0e1422;
+      --text: #e6e7eb;
+      --muted: #9aa0a6;
+      --primary: #10b981;
+      --border: #1f2937;
+      --accent: #22d3ee;
+      --danger: #ef4444;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans", "Helvetica Neue", Arial;
+      -webkit-font-smoothing: antialiased;
+      padding: 20px;
+    }
+    .wrap {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    h1 { margin: 0 0 6px 0; font-weight: 800; letter-spacing: -0.02em; }
+    p.lead { margin: 0 0 18px 0; color: var(--muted); }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+    }
+    label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+    textarea {
+      width: 100%; min-height: 200px; resize: vertical;
+      background: #0b1324; border: 1px solid var(--border);
+      color: var(--text); border-radius: 10px; padding: 12px 14px;
+      line-height: 1.6; font-size: 16px; outline: none;
+    }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .row-3 { grid-template-columns: 1fr 1fr 1fr; }
+    select, input[type="range"] {
+      width: 100%; height: 40px; border-radius: 8px;
+      border: 1px solid var(--border); background: #0b1324; color: var(--text);
+      padding: 0 10px; outline: none;
+    }
+    .small { font-size: 12px; color: var(--muted); }
+    .btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    button {
+      border: 1px solid var(--border); background: #0b1324; color: var(--text);
+      padding: 10px 14px; border-radius: 10px; cursor: pointer; font-weight: 600;
+    }
+    button.primary { background: linear-gradient(180deg, #10b981, #0e9f6e); border-color: rgba(16,185,129,0.5); }
+    button.accent { background: linear-gradient(180deg, #22d3ee, #0891b2); border-color: rgba(34,211,238,0.5); color: #041d26; }
+    button.danger { background: linear-gradient(180deg, #f87171, #ef4444); border-color: rgba(239,68,68,0.5); }
+    button:disabled { opacity: .6; cursor: not-allowed; }
+    .status { margin-top: 8px; font-size: 13px; color: var(--muted); min-height: 18px; }
+    audio { width: 100%; margin-top: 10px; }
+    details { margin-top: 8px; }
+    .pill { display: inline-block; background: #0b1324; border: 1px solid var(--border); border-radius: 999px; padding: 4px 8px; font-size: 12px; color: var(--muted); }
+    @media (max-width: 800px) { .row, .row-3 { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>বাংলা টেক্সট → স্বাভাবিক মহিলা কণ্ঠ</h1>
+    <p class="lead">শিক্ষিত বাংলাদেশি মহিলার মতো প্রাঞ্জল উচ্চারণে নিউরাল TTS (bn‑BD NabanitaNeural)। অডিও ডাউনলোড করা যাবে।</p>
+
+    <div class="card">
+      <label for="text">টেক্সট</label>
+      <textarea id="text">হ্যালো, আপনি কেমন আছেন? আজকের খবরটা শুনলেন?</textarea>
+
+      <div class="row" style="margin-top:10px">
+        <div>
+          <label for="bnVoice">বাংলা ভয়েস (female)</label>
+          <select id="bnVoice">
+            <option value="bn-BD-NabanitaNeural" selected>bn-BD-NabanitaNeural — Female (বাংলাদেশি)</option>
+            <option value="bn-BD-TanimNeural">bn-BD-TanimNeural — Male (বাংলাদেশি)</option>
+          </select>
+          <div class="small">ডিফল্ট: Nabanita (মহিলা)।</div>
+        </div>
+        <div>
+          <label for="enVoice">ইংরেজি ভয়েস (মিশ্র টেক্সট)</label>
+          <select id="enVoice">
+            <option value="en-IN-NeerjaNeural" selected>en-IN-NeerjaNeural — Female</option>
+            <option value="en-GB-LibbyNeural">en-GB-LibbyNeural — Female</option>
+            <option value="en-US-JennyNeural">en-US-JennyNeural — Female</option>
+          </select>
+          <div class="small">বাংলা বাক্যে থাকা ইংরেজি শব্দ/ফ্রেজে আলাদা ইংরেজি ভয়েস ব্যবহার।</div>
+        </div>
+      </div>
+
+      <details>
+        <summary>অ্যাডভান্সড সেটিংস</summary>
+        <div class="row-3" style="margin-top:10px">
+          <div>
+            <label for="rate">গতি (rate): <span id="rateVal" class="pill">1.00</span></label>
+            <input id="rate" type="range" min="0.85" max="1.15" value="1.00" step="0.01" />
+          </div>
+          <div>
+            <label for="pitch">টোন (pitch): <span id="pitchVal" class="pill">1.00</span></label>
+            <input id="pitch" type="range" min="0.90" max="1.10" value="1.00" step="0.01" />
+          </div>
+          <div>
+            <label for="naturalize">Natural Mode</label>
+            <select id="naturalize">
+              <option value="on" selected>On (বিরতি/ডিজিট/প্রসোডি)</option>
+              <option value="off">Off</option>
+            </select>
+          </div>
+        </div>
+      </details>
+
+      <div class="btns">
+        <button id="btnSynthesize" class="primary">🔊 প্লে (Neural)</button>
+        <button id="btnDownload" class="accent" disabled>⬇️ MP3 ডাউনলোড</button>
+        <button id="btnStop" class="danger">⏹ থামান</button>
+        <button id="btnBrowser" title="ব্যাকআপ: ব্রাউজারের ভয়েস" style="margin-left:auto">🧩 Browser TTS (fallback)</button>
+      </div>
+
+      <div class="status" id="status">প্রস্তুত ✅</div>
+      <audio id="player" controls preload="none"></audio>
+    </div>
+
+    <p class="small" style="margin-top:10px">
+      নোট: সর্বোচ্চ প্রাকৃতিক মানের জন্য ওপরের বাটনটি নিউরাল ক্লাউড TTS ব্যবহার করে। ব্যাকএন্ড কনফিগার না থাকলে ব্রাউজার TTS fallback ব্যবহার হবে (ডাউনলোড সম্ভব নাও হতে পারে)।
+    </p>
+  </div>
+
+<script>
+  // ----------------------------
+  // Minimal helpers
+  // ----------------------------
+  const $ = (id) => document.getElementById(id);
+  const BN_RANGE = /[\u0980-\u09FF]/;
+  const EN_RANGE = /[A-Za-z]/;
+  const DIGITS_EN = /[0-9]/g;
+  const DIGITS_MAP = { "0":"০","1":"১","2":"২","3":"৩","4":"৪","5":"৫","6":"৬","7":"৭","8":"৮","9":"৯" };
+
+  $("rate").addEventListener("input", () => $("rateVal").textContent = (+$("rate").value).toFixed(2));
+  $("pitch").addEventListener("input", () => $("pitchVal").textContent = (+$("pitch").value).toFixed(2));
+
+  $("btnSynthesize").addEventListener("click", synthesizeNeural);
+  $("btnDownload").addEventListener("click", () => {/* handled after synthesis */});
+  $("btnStop").addEventListener("click", stopAll);
+  $("btnBrowser").addEventListener("click", browserTTS);
+
+  function setStatus(msg) { $("status").textContent = msg; }
+
+  function stopAll() {
+    // Stop browser TTS if speaking
+    try { window.speechSynthesis.cancel(); } catch {}
+    // Stop audio playback
+    const p = $("player");
+    p.pause();
+    p.currentTime = 0;
+    setStatus("থামানো হয়েছে ⛔");
+  }
+
+  // ----------------------------
+  // Text normalization for natural delivery
+  // ----------------------------
+  function convertDigitsToBangla(t) { return t.replace(DIGITS_EN, d => DIGITS_MAP[d] || d); }
+
+  function normalizePunctuation(text) {
+    // Bengali danda for Bengali sentence ends; keep dot for non-Bengali
+    return text
+      .replace(/\s+/g, " ")
+      .replace(/([^\n\u0980-\u09FF0-9])[.](?=\s|$)/g, "$1.")
+      .replace(/([\u0980-\u09FF0-9])[.](?=\s|$)/g, "$1।")
+      .replace(/৳/g, " টাকা ");
+  }
+
+  function smartNormalize(text, enable=true) {
+    if (!enable) return text.trim();
+    let t = text.trim();
+    t = convertDigitsToBangla(t);
+    t = normalizePunctuation(t);
+    t = t.replace(/\s{2,}/g, " ").trim();
+    return t;
+  }
+
+  function splitIntoSentences(text) {
+    // Try Intl.Segmenter
+    if (typeof Intl !== "undefined" && Intl.Segmenter) {
+      try {
+        const seg = new Intl.Segmenter('bn', { granularity: 'sentence' });
+        const parts = [...seg.segment(text)].map(s => s.segment.trim()).filter(Boolean);
+        if (parts.length) return parts;
+      } catch {}
+    }
+    // Fallback
+    const out = [];
+    let buf = "";
+    for (const ch of text) {
+      buf += ch;
+      if (/[।!?…]/.test(ch)) { out.push(buf.trim()); buf = ""; }
+    }
+    if (buf.trim()) out.push(buf.trim());
+    return out;
+  }
+
+  function splitClauses(sentence) {
+    const raw = sentence.split(/([,؛;،])/).filter(Boolean);
+    const out = []; let acc = "";
+    for (const part of raw) {
+      acc += part;
+      if (/[,؛;،]$/.test(part)) { out.push(acc.trim()); acc = ""; }
+    }
+    if (acc.trim()) out.push(acc.trim());
+    return out;
+  }
+
+  function detectChunkLang(s) {
+    const bn = BN_RANGE.test(s);
+    const en = EN_RANGE.test(s);
+    if (bn && !en) return "bn";
+    if (en && !bn) return "en";
+    const bnCount = (s.match(/[\u0980-\u09FF]/g) || []).length;
+    const enCount = (s.match(/[A-Za-z]/g) || []).length;
+    return bnCount >= enCount ? "bn" : "en";
+  }
+
+  // ----------------------------
+  // Build SSML targeting an educated Bangladeshi female voice
+  // ----------------------------
+  function pct(x) {
+    // Convert 0.95..1.05 -> "-5%".."+5%"
+    const delta = Math.round((x - 1) * 100);
+    return (delta >= 0 ? "+" : "") + delta + "%";
+  }
+
+  function buildSSML(raw, opts) {
+    const { bnVoice, enVoice, rate=1.0, pitch=1.0, naturalize=true } = opts;
+    const text = smartNormalize(raw, naturalize);
+    const sentences = splitIntoSentences(text);
+
+    // Slight micro-variation per clause to feel human but keep tight bounds
+    const jitter = () => (Math.random() * 0.04 - 0.02); // ±2%
+
+    const parts = [];
+    for (const s of sentences) {
+      const isQ = /[?？]$/.test(s);
+      const endPause = isQ ? 260 : 200;
+
+      const clauses = splitClauses(s);
+      clauses.forEach((cl, i) => {
+        const lang = detectChunkLang(cl);
+        const vname = lang === "en" ? enVoice : bnVoice;
+
+        let r = rate + jitter();
+        let p = pitch + jitter();
+        if (isQ) p = Math.min(1.10, p + 0.03);
+
+        const ratePct = pct(r);
+        const pitchPct = pct(p);
+
+        parts.push(
+          `<voice name="${vname}"><prosody rate="${ratePct}" pitch="${pitchPct}">${escapeXML(cl)}</prosody></voice>`
+        );
+
+        const clausePause = i < clauses.length - 1 ? 140 : endPause;
+        parts.push(`<break time="${clausePause}ms"/>`);
+      });
+    }
+
+    // Educated/neutral delivery: rely on NabanitaNeural defaults, keep style plain for consistency
+    const ssml = `
+<speak version="1.0" xml:lang="bn-BD" xmlns:mstts="https://www.w3.org/2001/mstts">
+  ${parts.join("\n  ")}
+</speak>`.trim();
+
+    return ssml;
+  }
+
+  function escapeXML(s) {
+    return s
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&apos;");
+  }
+
+  // ----------------------------
+  // Neural synthesis (Azure backend)
+  // ----------------------------
+  async function synthesizeNeural() {
+    stopAll();
+    setStatus("রূপান্তর হচ্ছে… (Neural TTS)");
+
+    const bnVoice = $("bnVoice").value || "bn-BD-NabanitaNeural";
+    const enVoice = $("enVoice").value || "en-IN-NeerjaNeural";
+    const rate = parseFloat($("rate").value);
+    const pitch = parseFloat($("pitch").value);
+    const naturalize = $("naturalize").value === "on";
+
+    const text = $("text").value.trim();
+    if (!text) { setStatus("কিছু লেখা দিন…"); return; }
+
+    const ssml = buildSSML(text, { bnVoice, enVoice, rate, pitch, naturalize });
+
+    try {
+      const res = await fetch("/api/tts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ssml,
+          format: "audio-24khz-48kbitrate-mono-mp3"
+        }),
+      });
+
+      if (!res.ok) {
+        const msg = await res.text();
+        throw new Error(msg || `HTTP ${res.status}`);
+      }
+
+      const buf = await res.arrayBuffer();
+      const blob = new Blob([buf], { type: "audio/mpeg" });
+      const url = URL.createObjectURL(blob);
+
+      const player = $("player");
+      player.src = url;
+      player.play().catch(()=>{ /* autoplay may block */ });
+
+      const fname = `bnBD_female_${Date.now()}.mp3`;
+      setupDownload(blob, fname);
+
+      setStatus("প্রস্তুত ✅ — প্লে/ডাউনলোড করুন");
+    } catch (e) {
+      setStatus("Neural TTS ব্যর্থ — ব্রাউজার fallback চেষ্টা করুন বা ব্যাকএন্ড কনফিগার করুন।");
+      console.error(e);
+    }
+  }
+
+  function setupDownload(blob, filename) {
+    const btn = $("btnDownload");
+    btn.disabled = false;
+    // Create on-demand download
+    btn.onclick = () => {
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    };
+  }
+
+  // ----------------------------
+  // Browser fallback (no download guarantee)
+  // ----------------------------
+  async function browserTTS() {
+    stopAll();
+    if (!("speechSynthesis" in window)) {
+      setStatus("এই ব্রাউজারে Web Speech API নেই।");
+      return;
+    }
+    setStatus("ব্রাউজার ভয়েস দিয়ে পড়া হচ্ছে…");
+
+    // Try to pick a Bengali female voice if available
+    const voices = await waitForVoices();
+    const pick = (filterFn, fallback=null) => voices.find(filterFn) || fallback;
+
+    const bnPick = pick(v => {
+      const n = (v.name||"").toLowerCase();
+      const l = (v.lang||"").toLowerCase();
+      return l.startsWith("bn") && (n.includes("female") || n.includes("girl") || n.includes("nabanita") || true);
+    }, voices.find(v => (v.lang||"").toLowerCase().startsWith("bn")) || null);
+
+    const enPick = pick(v => (v.lang||"").toLowerCase().startsWith("en-in"),
+                  voices.find(v => (v.lang||"").toLowerCase().startsWith("en")) || null);
+
+    const rate = parseFloat($("rate").value);
+    const pitch = parseFloat($("pitch").value);
+    const naturalize = $("naturalize").value === "on";
+
+    const segments = buildBrowserSegments($("text").value, {
+      bnVoice: bnPick, enVoice: enPick, rate, pitch, naturalize
+    });
+
+    // Queue speak
+    let idx = -1;
+    const speakNext = () => {
+      idx++;
+      if (idx >= segments.length) { setStatus("শেষ ✅"); return; }
+      const seg = segments[idx];
+      const utt = new SpeechSynthesisUtterance(seg.text);
+      if (seg.voice) utt.voice = seg.voice;
+      utt.lang = seg.lang;
+      utt.rate = seg.rate;
+      utt.pitch = seg.pitch;
+      utt.onend = () => setTimeout(speakNext, seg.pauseAfter);
+      utt.onerror = () => setTimeout(speakNext, 60);
+      speechSynthesis.speak(utt);
+    };
+    speakNext();
+  }
+
+  function buildBrowserSegments(text, { bnVoice, enVoice, rate, pitch, naturalize }) {
+    const t = smartNormalize(text, naturalize);
+    const sents = splitIntoSentences(t);
+    const out = [];
+    for (const s of sents) {
+      const isQ = /[?？]$/.test(s);
+      const endPause = isQ ? 220 : 180;
+      const clauses = splitClauses(s);
+      for (let i=0; i<clauses.length; i++) {
+        const cl = clauses[i];
+        const lang = detectChunkLang(cl);
+        out.push({
+          text: cl,
+          lang: lang === "en" ? "en-IN" : "bn-BD",
+          voice: lang === "en" ? enVoice : bnVoice,
+          rate, pitch: Math.min(2, pitch + (isQ ? 0.03 : 0)),
+          pauseAfter: i < clauses.length-1 ? 120 : endPause
+        });
+      }
+    }
+    return out;
+  }
+
+  function waitForVoices(timeoutMs = 3000) {
+    return new Promise((resolve) => {
+      const v = speechSynthesis.getVoices();
+      if (v && v.length) return resolve(v);
+      const t = setTimeout(() => resolve(speechSynthesis.getVoices()), timeoutMs);
+      window.speechSynthesis.onvoiceschanged = () => {
+        clearTimeout(t);
+        resolve(speechSynthesis.getVoices());
+      };
+      try { speechSynthesis.getVoices(); speechSynthesis.cancel(); } catch {}
+    });
+  }
+</script>
+</body>
+</html>
